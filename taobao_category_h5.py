@@ -418,6 +418,7 @@ def get_items(seed, app, ps):
          "searchElderHomeOpen": "false", "style": "wf", "page": pageno, "n": "10", "q": keyword, "cat": cid,
          "search_action": "initiative", "sugg": "_4_1", "m": "h5", "sversion": "13.6", "prepositionVersion": "v2",
          "tab": tab, "tagSearchKeyword": None, "sort": sort_, "filterTag": "", "prop": ""})
+
     params = json.dumps(params, ensure_ascii=False, separators=(",", ":"))
     data = json.dumps({"appId": "29859", "params": params}, ensure_ascii=False, separators=(",", ":"))
     resp = get_api_resp(data, ps)
@@ -610,4 +611,4 @@ if __name__ == '__main__':
     worker = BasicWorker(project='catappitems', proxy_type='rproxy', user_agent_type='mobile', sleep_time=5,
                          active_interval=60 * 15)
     worker.run()
-    #11
+    #111
