@@ -17,7 +17,7 @@ import time
 from collections import OrderedDict
 from moojing import openlog, INFO, ERR, DBG
 from moojing.spiderman import BasicWorker
-from qa_field_type import field_type_qa
+# from qa_field_type import field_type_qa
 import requests.packages.urllib3
 
 requests.packages.urllib3.disable_warnings()
@@ -366,7 +366,7 @@ def parse_doc_h5(seed, info, reserve_price, sort_sale=False, currentPage=1, loc=
             'is_global': is_global,
         }
         # 对字段值类型进行qa
-        field_type_qa('cat_items', item_)
+        # field_type_qa('cat_items', item_)
         items.append(item_)
 
     if sort_sale and len(items) > 0 and currentPage < totalPage:
