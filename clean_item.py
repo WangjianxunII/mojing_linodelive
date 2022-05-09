@@ -12,11 +12,12 @@ class CLEAN_DATA:
             d_count = 0
             for i in datalist:
                 data_l = eval(i).get('pre_items')
-                item_count = len(data_l)
-                d_count +=item_count
-                for d in data_l:
-                    if d not in self.data_list:
-                        self.data_list.append(d)
+                if data_l:
+                    item_count = len(data_l)
+                    d_count +=item_count
+                    for d in data_l:
+                        if d not in self.data_list:
+                            self.data_list.append(d)
             # print self.data_list
             print "去重前 抓取数据：", d_count
             print "去重后 抓取数据：",len(self.data_list)
