@@ -610,4 +610,4 @@ if __name__ == '__main__':
     worker = BasicWorker(project='catappitems', proxy_type='rproxy', user_agent_type='mobile', sleep_time=5,
                          active_interval=60 * 15)
     worker.run()
-    #1
+    #11
