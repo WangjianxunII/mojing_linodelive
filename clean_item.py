@@ -6,7 +6,7 @@ class CLEAN_DATA:
 
     def get_content(self):
         # with open('wangtest.txt','r') as f:
-        with open('/data/var/log/catappitems_tes11_log_2022_05_09_26_rproxy.log','r') as f:
+        with open('/data/var/log/catappitems_test16_log_2022_05_10_24_rproxy.log','r') as f:
             all_content = f.read()
             datalist = re.findall('seed:(.*?),items:', all_content)
             print "去重前 抓取数据：",len(datalist)*10
