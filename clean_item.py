@@ -23,5 +23,19 @@ class CLEAN_DATA:
             print "去重前 抓取数据：", d_count
             print "去重后 抓取数据：",len(self.data_list)
 
+    def get_content2(self):
+        # with open('wangtest.txt','r') as f:
+        with open('./content.txt','r') as f:
+            all_content = f.read()
+            datalist = re.findall(',item_id:(.*?),price', all_content)
+            d_count = len(datalist)
+            for i in datalist:
+                if i not in self.data_list:
+                    self.data_list.append(i)
+            print self.data_list
+            print "去重前 抓取数据：", d_count
+            print "去重后 抓取数据：",len(self.data_list)
+
 clean_data = CLEAN_DATA()
-clean_data.get_content()
+# clean_data.get_content()
+clean_data.get_content2()
