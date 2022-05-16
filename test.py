@@ -43,8 +43,8 @@ from hashlib import md5
 import time
 
 url = "https://main.m.taobao.com/"
-# proxies = {"https": "http://hades.p.shifter.io:20754"}
-proxies = None
+proxies = {"http": "http://hades.p.shifter.io:20759","https": "http://hades.p.shifter.io:20759"}
+# proxies = None
 # proxies = {"https":"http://127.0.0.1:8888"}
 
 import logging
@@ -267,7 +267,13 @@ def get(data, cookies=None):
         allitemsdep.add(item_id)
         itemids.append(item_id)
         price = item.get("sku_discnt_price") if "sku_discnt_price" in item else item.get("priceWithRate")
-        logger.info(u"title:{},item_id:{},price:{},category:{},sales:{}".format(item.get("title"),item_id,price,item.get("category"),item.get("sold")))
+        da = u"title:{},item_id:{},price:{},category:{},sales:{}".format(item.get("title"),item_id,price,item.get("category"),item.get("sold"))
+        # da = "title:{},item_id:{},price:{},category:{},sales:{}".format(item.get("title"),item_id,price,item.get("category"),item.get("sold"))
+        logger.info(da)
+
+        with open('content.txt','a+') as f:
+            f.write(da.encode('utf-8')+'\n')
+
     if repeat:
         raise Exception("repeat")
     return data,itemids
@@ -430,6 +436,7 @@ if __name__ == "__main__":
                 import traceback
                 print(traceback.format_exc())
                 continue
+        # time.sleep(1)
     print(len(allitemsdep))
 
     # def th_get_page(page,prefix,itemsids):
@@ -450,6 +457,7 @@ if __name__ == "__main__":
     # for p in pools:
     #     p.join()
     # print(len(allitemsdep))
-
-
+#
+# 1。服务器 和本地同时测试
+# 2。如果
 
