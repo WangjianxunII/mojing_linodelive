@@ -6,7 +6,7 @@ class CLEAN_DATA:
 
     def get_content(self):
         # with open('wangtest.txt','r') as f:
-        with open('/data/var/log/catappitems_test16_log_2022_05_10_24_rproxy.log','r') as f:
+        with open('/data/var/log/catappitems_test1_log_2022_05_16_24_rproxy.log','r') as f:
             all_content = f.read()
             datalist = re.findall('seed:(.*?),items:', all_content)
             print "去重前 抓取数据：",len(datalist)*10
@@ -32,10 +32,10 @@ class CLEAN_DATA:
             for i in datalist:
                 if i not in self.data_list:
                     self.data_list.append(i)
-            print self.data_list
+            # print self.data_list
             print "去重前 抓取数据：", d_count
             print "去重后 抓取数据：",len(self.data_list)
 
 clean_data = CLEAN_DATA()
-# clean_data.get_content()
-clean_data.get_content2()
+clean_data.get_content()
+# clean_data.get_content2()
