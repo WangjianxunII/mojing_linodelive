@@ -43,8 +43,8 @@ from hashlib import md5
 import time
 
 url = "https://main.m.taobao.com/"
-# proxies = {"http": "http://hades.p.shifter.io:20759","https": "http://hades.p.shifter.io:20759"}
-proxies = None
+proxies = {"http": "http://hades.p.shifter.io:20759","https": "http://hades.p.shifter.io:20759"}
+# proxies = None
 # proxies = {"https":"http://127.0.0.1:8888"}
 
 import logging
