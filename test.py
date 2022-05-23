@@ -98,7 +98,7 @@ def get_cookie2(ps):
         'sec-ch-ua-mobile': '?1',
         'sec-ch-ua-platform': '"Android"',
         'upgrade-insecure-requests': '1',
-        'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Mobile Safari/537.36',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36',
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
         'sec-fetch-site': 'none',
         'sec-fetch-mode': 'navigate',
@@ -135,7 +135,7 @@ def get_api_resp(data, session):
         'Cache-Control': 'no-cache',
         'sec-ch-ua': '" Not;A Brand";v="99", "Google Chrome";v="97", "Chromium";v="97"',
         'sec-ch-ua-mobile': '?0',
-        # 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36 Edg/99.0.1150.39',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36',
         'sec-ch-ua-platform': '"Windows"',
         'Accept': '*/*',
         'Sec-Fetch-Site': 'same-site',
@@ -217,7 +217,7 @@ def get(data, cookies=None):
         'Cache-Control': 'no-cache',
         'sec-ch-ua': '" Not;A Brand";v="99", "Google Chrome";v="97", "Chromium";v="97"',
         'sec-ch-ua-mobile': '?0',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36 Edg/99.0.1150.39',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36',
         'sec-ch-ua-platform': '"Windows"',
         'Accept': '*/*',
         'Sec-Fetch-Site': 'same-site',
@@ -271,7 +271,7 @@ def get(data, cookies=None):
         # da = "title:{},item_id:{},price:{},category:{},sales:{}".format(item.get("title"),item_id,price,item.get("category"),item.get("sold"))
         logger.info(da)
 
-        with open('content.txt','a+') as f:
+        with open('content213.txt', 'a+') as f:
             f.write(da.encode('utf-8')+'\n')
 
     if repeat:
@@ -436,7 +436,7 @@ if __name__ == "__main__":
                 import traceback
                 print(traceback.format_exc())
                 continue
-        # time.sleep(1)
+        # time.sleep(3)
     print(len(allitemsdep))
 
     # def th_get_page(page,prefix,itemsids):
@@ -458,6 +458,37 @@ if __name__ == "__main__":
     #     p.join()
     # print(len(allitemsdep))
 #
-# 1。服务器 和本地同时测试
-# 2。如果
 
+
+# 服务器和本地限速3s 1。服务器 2。本地
+# 1。
+# 去重前 抓取数据： 2110,2500,2000,2000,2000
+# 去重后 抓取数据： 2000,2000,2000,2000,2000
+# 2。
+# 去重前 抓取数据： 2239,2120,2000,2030,2019,2070
+# 去重后 抓取数据： 2129,2000,2000,2000,1989,2000
+#
+# 服务器和本地不限速限速 1。服务器 2。本地
+# 1。
+# 去重前 抓取数据： 1999,2460,2080,2000,2050
+# 去重后 抓取数据： 1999,2009,2000,2000,2000
+# 2。
+# 去重前 抓取数据： 2020,1700,2000,2060,1910,2000
+# 去重后 抓取数据： 2000,1620,2000,2000,1910,2000
+#
+# 服务器 不带cid
+# 去重前 抓取数据： 490465
+# 去重后 抓取数据： 24484
+
+# mac ua
+# 去重前 抓取数据： 3560
+# 去重后 抓取数据： 2339
+# win ua
+# 去重前 抓取数据： 3210
+# 去重后 抓取数据： 2415
+# 手机 ua-safari
+# 去重前 抓取数据： 2000，2000
+# 去重后 抓取数据： 2000，2000
+# 手机 ua-Google
+# 去重前 抓取数据： 2000，2000
+# 去重后 抓取数据： 2000，2000

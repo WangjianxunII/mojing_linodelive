@@ -19,23 +19,46 @@ class CLEAN_DATA:
                     for d in data_l:
                         if d not in self.data_list:
                             self.data_list.append(d)
+
             # print self.data_list
             print "去重前 抓取数据：", d_count
             print "去重后 抓取数据：",len(self.data_list)
 
     def get_content2(self):
         # with open('wangtest.txt','r') as f:
-        with open('./content.txt','r') as f:
+        with open('content213.txt', 'r') as f:
             all_content = f.read()
             datalist = re.findall(',item_id:(.*?),price', all_content)
             d_count = len(datalist)
             for i in datalist:
+                # print i
                 if i not in self.data_list:
                     self.data_list.append(i)
-            # print self.data_list
+                else:
+                    print i
+                    # print self.data_list
             print "去重前 抓取数据：", d_count
             print "去重后 抓取数据：",len(self.data_list)
 
+    def get_content3(self):
+        # with open('wangtest.txt','r') as f:
+        with open('/data/test/catappitems_taobao_test5_2022_05_19_24_rproxy.txt', 'r') as f:
+            all_content_list = f.readlines()
+            # datalist = re.findall(',item_id:(.*?),price', all_content)
+            # d_count = len(datalist)
+            for i in all_content_list:
+                print i
+            #     if i not in self.data_list:
+            #         self.data_list.append(i)
+            #     else:
+            #         print i
+            #         # print self.data_list
+            # print "去重前 抓取数据：", d_count
+            # print "去重后 抓取数据：",len(self.data_list)
+
 clean_data = CLEAN_DATA()
-clean_data.get_content()
+# clean_data.get_content()
 # clean_data.get_content2()
+clean_data.get_content3()
+
+#worker starting
