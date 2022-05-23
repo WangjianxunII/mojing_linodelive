@@ -46,7 +46,7 @@ class CLEAN_DATA:
 
     def get_content3(self):
         # with open('wangtest.txt','r') as f:
-        with open('/data/test/catappitems_taobao_test5_2022_05_19_24_rproxy.txt', 'r') as f:
+        with open('/data/test/catappitems_taobao_test0204_2022_05_23_24_rproxy.txt', 'r') as f:
         # with open('./123.txt', 'r') as f:
             all_content = f.read()
             datalist = re.findall('item_id": "(.*?)", "pro_price', all_content)
