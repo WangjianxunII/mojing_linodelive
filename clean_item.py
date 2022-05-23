@@ -55,8 +55,8 @@ class CLEAN_DATA:
                 # print i
                 if i not in self.data_list:
                     self.data_list.append(i)
-                else:
-                    print i
+                # else:
+                #     print i
                     # print self.data_list
             print "去重前 抓取数据：", d_count
             print "去重后 抓取数据：",len(self.data_list)
