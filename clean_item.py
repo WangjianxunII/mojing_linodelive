@@ -50,9 +50,10 @@ class CLEAN_DATA:
             # datalist = re.findall(',item_id:(.*?),price', all_content)
             # d_count = len(datalist)
             for i in all_content_list:
-                print '*****'*10
-                print i
-                print '*****' * 10
+
+                # i = 'cat_items{"comment": "", "loc": "", "clickTrace": "query:%E8%BF%9E%E8%A1%A3%E8%A3%99;nid:673438202146;cat_id:50010850;seller_id:4002489870;seller_type:1;src:mainse;recType:;rn:abf9760f0c7b5ae4cd66c7d9ff19dc17;c_flag:false;client:android;sp_rank_features:;wlsort:0;price:89;sold:6519;sort:_sale;tpp_bucket:1;catepgoryp:50010850 16 0;sumtips:bsl_165", "uid": "4002489870", "title": "\u68ee\u9a6c\u8fde\u8863\u88d9v\u9886\u6ce1\u6ce1\u8d28\u611f\u683c\u7eb9\u751c\u7f8e", "price_type": "price", "price": "339.00", "pic": "http://g.search2.alicdn.com/img/bao/uploaded/i4/i1/4002489870/O1CN01QCI9uU2MmVvDaSFON_!!0-item_pic.jpg", "buy_count": 6519, "ww": "", "brand_id": null, "shop_type": "tmall", "cid": "", "crawl_time": "2022-05-19 09:27:46", "seed": {"q": "\u8fde\u8863\u88d9", "type": "cat_items", "pageno": 1}, "item_id": "673438202146", "pro_price": "89.90", "is_global": false, "back_cid": "", "sold": 6519, "iconList": ["tmall", "baoyounew"]}\n'
+                i = i.replace('cat_items','').replace('\n','').strip()
+                print eval(i).get('item_id')
                 time.sleep(2)
             #     if i not in self.data_list:
             #         self.data_list.append(i)
