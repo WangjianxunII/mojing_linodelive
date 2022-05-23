@@ -1,5 +1,8 @@
 # coding:utf-8
 import re
+import time
+
+
 class CLEAN_DATA:
     def __init__(self):
         self.data_list = []
@@ -47,7 +50,10 @@ class CLEAN_DATA:
             # datalist = re.findall(',item_id:(.*?),price', all_content)
             # d_count = len(datalist)
             for i in all_content_list:
+                print '*****'*10
                 print i
+                print '*****' * 10
+                time.sleep(2)
             #     if i not in self.data_list:
             #         self.data_list.append(i)
             #     else:
