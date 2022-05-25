@@ -1,5 +1,6 @@
 # coding:utf-8
 import json
+import random
 import re
 import time
 
@@ -9,9 +10,10 @@ class CLEAN_DATA:
         self.data_list = []
     def get_Ua(self):
         with open('/share/home/wangjianxun/mobile_ua.txt', 'r') as f:
-            all_content = f.readlines()
-            print len(all_content)
-            print all_content[:10]
+            UALIST = f.readlines()
+            print len(UALIST)
+            useragent = random.choice(UALIST)
+            print useragent.strip()
 
     def get_content(self):
         # with open('wangtest.txt','r') as f:
