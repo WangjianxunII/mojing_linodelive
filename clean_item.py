@@ -11,9 +11,10 @@ class CLEAN_DATA:
     def get_Ua(self):
         with open('/share/home/wangjianxun/mobile_ua.txt', 'r') as f:
             UALIST = f.readlines()
-            print len(UALIST)
-            useragent = random.choice(UALIST)
-            print useragent.strip()
+            # print len(UALIST)
+            # useragent = random.choice(UALIST)
+            # print useragent.strip()
+            return UALIST
 
     def get_content(self):
         # with open('wangtest.txt','r') as f:
@@ -53,7 +54,7 @@ class CLEAN_DATA:
 
     def get_content3(self):
         # with open('wangtest.txt','r') as f:
-        with open('/data/test/catappitems_taobao_test0204_2022_05_23_24_rproxy.txt', 'r') as f:
+        with open('/data/test/catappitems_taobao_test007_2022_05_25_24_rproxy.txt', 'r') as f:
         # with open('./123.txt', 'r') as f:
             all_content = f.read()
             datalist = re.findall('item_id": "(.*?)", "pro_price', all_content)
@@ -71,7 +72,7 @@ class CLEAN_DATA:
 clean_data = CLEAN_DATA()
 # clean_data.get_content()
 # clean_data.get_content2()
-# clean_data.get_content3()
-clean_data.get_Ua()
+clean_data.get_content3()
+# clean_data.get_Ua()
 
 #worker starting
