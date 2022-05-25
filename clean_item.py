@@ -7,6 +7,10 @@ import time
 class CLEAN_DATA:
     def __init__(self):
         self.data_list = []
+    def get_Ua(self):
+        with open('/share/home/wangjianxun/mobile_ua.txt', 'r') as f:
+            all_content = f.readlines()
+            print all_content[:10]
 
     def get_content(self):
         # with open('wangtest.txt','r') as f:
@@ -30,7 +34,7 @@ class CLEAN_DATA:
 
     def get_content2(self):
         # with open('wangtest.txt','r') as f:
-        with open('content1.txt', 'r') as f:
+        with open('content55.txt', 'r') as f:
             all_content = f.read()
             datalist = re.findall(',item_id:(.*?),price', all_content)
             d_count = len(datalist)
@@ -63,7 +67,8 @@ class CLEAN_DATA:
 
 clean_data = CLEAN_DATA()
 # clean_data.get_content()
-clean_data.get_content2()
+# clean_data.get_content2()
 # clean_data.get_content3()
+clean_data.get_Ua()
 
 #worker starting
