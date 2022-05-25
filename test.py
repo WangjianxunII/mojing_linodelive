@@ -30,8 +30,8 @@ def abuyun_proxy():
     proxyPort = "9020"
 
     # 代理隧道验证信息
-    proxyUser = "HF657I9HJ9989X5D"
-    proxyPass = "E299D876EDEF5739"
+    proxyUser = "H7ODW0OGV50UH6ED"
+    proxyPass = "A30B3B2097937505"
 
     proxyMeta = "http://%(user)s:%(pass)s@%(host)s:%(port)s" % {
         "host": proxyHost,
@@ -119,9 +119,9 @@ def get_cna(session):
     for i in range(10):
         try:
             url = "https://log.mmstat.com/eg.js?t={}".format(int(time.time() * 1000))
-            session.get(url, headers=headers, proxies=proxies, timeout=30)
+            # session.get(url, headers=headers, proxies=proxies, timeout=30)
             # session.get(url, headers=headers, proxies=random_prox(), timeout=30)
-            # session.get(url, headers=headers, proxies=abuyun_proxy(), timeout=30)
+            session.get(url, headers=headers, proxies=abuyun_proxy(), timeout=30)
             if "cna" in session.cookies.get_dict():
                 break
         except Exception as e:
@@ -156,9 +156,9 @@ def get_cookie2(ps):
     for i in range(10):
         url = "https://login.m.taobao.com/login.htm"
         try:
-            session.get(url, headers=headers, proxies=proxies, timeout=30)
+            # session.get(url, headers=headers, proxies=proxies, timeout=30)
             # session.get(url, headers=headers, proxies=random_prox(), timeout=30)
-            # session.get(url, headers=headers, proxies=abuyun_proxy(), timeout=30)
+            session.get(url, headers=headers, proxies=abuyun_proxy(), timeout=30)
         except:
             continue
         if "cookie2" in session.cookies.get_dict():
@@ -211,9 +211,9 @@ def get_api_resp(data, session):
     url = "https://h5api.m.taobao.com/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0/?" + urllib.urlencode(post_data)
     for i in range(10):
         try:
-            resp = session.get(url, headers=headers, proxies=proxies, verify=False, cookies=cookies, timeout=40)
+            # resp = session.get(url, headers=headers, proxies=proxies, verify=False, cookies=cookies, timeout=40)
             # resp = session.get(url, headers=headers, proxies=random_prox(), verify=False, cookies=cookies, timeout=40)
-            # resp = session.get(url, headers=headers, proxies=abuyun_proxy(), verify=False, cookies=cookies, timeout=40)
+            resp = session.get(url, headers=headers, proxies=abuyun_proxy(), verify=False, cookies=cookies, timeout=40)
             break
         except:
             continue
@@ -301,9 +301,9 @@ def get(data, cookies=None):
     url = "https://h5api.m.taobao.com/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0/?" + urllib.urlencode(
         post_data)
     headers["Referer"] = "https://main.m.taobao.com/search/index.html?pageType=3&q={}".format(seed["keyword"])
-    resp = session.get(url, headers=headers, proxies=proxies, verify=False, cookies=cookies)
+    # resp = session.get(url, headers=headers, proxies=proxies, verify=False, cookies=cookies)
     # resp = session.get(url, headers=headers, proxies=random_prox(), verify=False, cookies=cookies)
-    # resp = session.get(url, headers=headers, proxies=abuyun_proxy(), verify=False, cookies=cookies)
+    resp = session.get(url, headers=headers, proxies=abuyun_proxy(), verify=False, cookies=cookies)
     data = resp.text.split("(",1)[1].strip(") ")
     # print(data)
     data = json.loads(data)
@@ -324,7 +324,7 @@ def get(data, cookies=None):
         # da = "title:{},item_id:{},price:{},category:{},sales:{}".format(item.get("title"),item_id,price,item.get("category"),item.get("sold"))
         logger.info(da)
 
-        with open('content55.txt', 'a+') as f:
+        with open('content44.txt', 'a+') as f:
             f.write(da.encode('utf-8')+'\n')
 
     if repeat:
