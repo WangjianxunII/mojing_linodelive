@@ -1,4 +1,6 @@
 # coding:utf-8
+import random
+
 import requests
 from collections import OrderedDict
 import json
@@ -23,7 +25,24 @@ class MyHTTP20Adapter(HTTP20Adapter):
         super(MyHTTP20Adapter, self).__init__(*args, **kwargs)
         super(HTTP20Adapter, self).__init__(*args, **kwargs)
 
-
+def Random_UA():
+    UA = [
+        'Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 8 SE Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 Quark/3.0.4.945 Mobile Safari/537.36',
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SP-engine/2.22.0 main%2F1.0 baiduboxapp/11.26.1.10 (Baidu; P2 13.5.1) NABar/1.0 webCore=0x1327ad770',
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1',
+        'Mozilla/5.0 (Linux; Android 10; STK-AL00; HMSCore 5.0.4.301) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 HuaweiBrowser/11.0.4.300 Mobile Safari/537.36',
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SP-engine/2.23.0 main%2F1.0 baiduboxapp/12.0.0.11 (Baidu; P2 13.5.1) NABar/1.0 webCore=0x12c507de0',
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/604.3.5 (KHTML, like Gecko) Version/13.0 MQQBrowser/9.4.0 Mobile/15B87 Safari/604.1 MttCustomUA/2 QBWebViewType/1 WKType/1',
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SP-engine/2.22.0 main%2F1.0 baiduboxapp/11.26.1.10 (Baidu; P2 13.6) NABar/1.0 webCore=0x12bb8f7f0',
+        'Mozilla/5.0 (Linux; Android 10; LYA-AL00 Build/HUAWEILYA-AL00L; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/63.0.3239.83 Mobile Safari/537.36 T7/11.15 baiduboxapp/11.15.5.10 (Baidu; P1 10)',
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.4(0x17000820) NetType/4G Language/zh_CN',
+        'Mozilla/5.0 (Linux; U; Android 10; zh-CN; PBET00 Build/QKQ1.190918.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 Quark/4.6.1.159 Mobile Safari/537.36',
+        'Mozilla/5.0 (Linux; U; Android 10; zh-cn; MI 9 Transparent Edition Build/QKQ1.190825.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/11.1 Mobile Safari/537.36 COVC/045429',
+        'Mozilla/5.0 (Linux; U; Android 11; zh-cn; PDHM00 Build/RKQ1.200710.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/11.2 Mobile Safari/537.36 COVC/045517',
+        'Mozilla/5.0 (Linux; Android 11; SM-G9860) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Mobile Safari/537.36',
+        'Mozilla/5.0 (Linux; U; Android 11; zh-cn; Mi9 Pro 5G Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3945.147 Mobile Safari/537.36 XiaoMi/MiuiBrowser/13.7.15',
+          ]
+    return random.choice(UA)
 def request(self, method, url, clear_headers=False, http2=False, **kwargs):
     # 处理http2请求
     if http2:
@@ -41,16 +60,18 @@ session = Session()
 
 from hashlib import md5
 import time
+Proxies_list = [{'http': 'http://hades.p.shifter.io:20740', 'https': 'http://hades.p.shifter.io:20740'}, {'http': 'http://hades.p.shifter.io:20741', 'https': 'http://hades.p.shifter.io:20741'}, {'http': 'http://hades.p.shifter.io:20742', 'https': 'http://hades.p.shifter.io:20742'}, {'http': 'http://hades.p.shifter.io:20743', 'https': 'http://hades.p.shifter.io:20743'}, {'http': 'http://hades.p.shifter.io:20744', 'https': 'http://hades.p.shifter.io:20744'}, {'http': 'http://hades.p.shifter.io:20745', 'https': 'http://hades.p.shifter.io:20745'}, {'http': 'http://hades.p.shifter.io:20746', 'https': 'http://hades.p.shifter.io:20746'}, {'http': 'http://hades.p.shifter.io:20747', 'https': 'http://hades.p.shifter.io:20747'}, {'http': 'http://hades.p.shifter.io:20748', 'https': 'http://hades.p.shifter.io:20748'}, {'http': 'http://hades.p.shifter.io:20749', 'https': 'http://hades.p.shifter.io:20749'}, {'http': 'http://hades.p.shifter.io:20750', 'https': 'http://hades.p.shifter.io:20750'}, {'http': 'http://hades.p.shifter.io:20751', 'https': 'http://hades.p.shifter.io:20751'}, {'http': 'http://hades.p.shifter.io:20752', 'https': 'http://hades.p.shifter.io:20752'}, {'http': 'http://hades.p.shifter.io:20753', 'https': 'http://hades.p.shifter.io:20753'}, {'http': 'http://hades.p.shifter.io:20754', 'https': 'http://hades.p.shifter.io:20754'}, {'http': 'http://hades.p.shifter.io:20755', 'https': 'http://hades.p.shifter.io:20755'}, {'http': 'http://hades.p.shifter.io:20756', 'https': 'http://hades.p.shifter.io:20756'}, {'http': 'http://hades.p.shifter.io:20757', 'https': 'http://hades.p.shifter.io:20757'}, {'http': 'http://hades.p.shifter.io:20758', 'https': 'http://hades.p.shifter.io:20758'}, {'http': 'http://hades.p.shifter.io:20759', 'https': 'http://hades.p.shifter.io:20759'}, {'http': 'http://hades.p.shifter.io:20760', 'https': 'http://hades.p.shifter.io:20760'}, {'http': 'http://hades.p.shifter.io:20761', 'https': 'http://hades.p.shifter.io:20761'}, {'http': 'http://hades.p.shifter.io:20762', 'https': 'http://hades.p.shifter.io:20762'}, {'http': 'http://hades.p.shifter.io:20763', 'https': 'http://hades.p.shifter.io:20763'}, {'http': 'http://hades.p.shifter.io:20764', 'https': 'http://hades.p.shifter.io:20764'}, {'http': 'http://hades.p.shifter.io:20765', 'https': 'http://hades.p.shifter.io:20765'}, {'http': 'http://hades.p.shifter.io:20766', 'https': 'http://hades.p.shifter.io:20766'}, {'http': 'http://hades.p.shifter.io:20767', 'https': 'http://hades.p.shifter.io:20767'}, {'http': 'http://hades.p.shifter.io:20768', 'https': 'http://hades.p.shifter.io:20768'}, {'http': 'http://hades.p.shifter.io:20769', 'https': 'http://hades.p.shifter.io:20769'}, {'http': 'http://hades.p.shifter.io:20770', 'https': 'http://hades.p.shifter.io:20770'}, {'http': 'http://hades.p.shifter.io:20771', 'https': 'http://hades.p.shifter.io:20771'}, {'http': 'http://hades.p.shifter.io:20772', 'https': 'http://hades.p.shifter.io:20772'}, {'http': 'http://hades.p.shifter.io:20773', 'https': 'http://hades.p.shifter.io:20773'}, {'http': 'http://hades.p.shifter.io:20774', 'https': 'http://hades.p.shifter.io:20774'}, {'http': 'http://hades.p.shifter.io:20775', 'https': 'http://hades.p.shifter.io:20775'}, {'http': 'http://hades.p.shifter.io:20776', 'https': 'http://hades.p.shifter.io:20776'}, {'http': 'http://hades.p.shifter.io:20777', 'https': 'http://hades.p.shifter.io:20777'}, {'http': 'http://hades.p.shifter.io:20778', 'https': 'http://hades.p.shifter.io:20778'}, {'http': 'http://hades.p.shifter.io:20779', 'https': 'http://hades.p.shifter.io:20779'}, {'http': 'http://hades.p.shifter.io:20780', 'https': 'http://hades.p.shifter.io:20780'}, {'http': 'http://hades.p.shifter.io:20781', 'https': 'http://hades.p.shifter.io:20781'}, {'http': 'http://hades.p.shifter.io:20782', 'https': 'http://hades.p.shifter.io:20782'}, {'http': 'http://hades.p.shifter.io:20783', 'https': 'http://hades.p.shifter.io:20783'}, {'http': 'http://hades.p.shifter.io:20784', 'https': 'http://hades.p.shifter.io:20784'}, {'http': 'http://hades.p.shifter.io:20785', 'https': 'http://hades.p.shifter.io:20785'}, {'http': 'http://hades.p.shifter.io:20786', 'https': 'http://hades.p.shifter.io:20786'}, {'http': 'http://hades.p.shifter.io:20787', 'https': 'http://hades.p.shifter.io:20787'}, {'http': 'http://hades.p.shifter.io:20788', 'https': 'http://hades.p.shifter.io:20788'}, {'http': 'http://hades.p.shifter.io:20789', 'https': 'http://hades.p.shifter.io:20789'}, {'http': 'http://hades.p.shifter.io:20790', 'https': 'http://hades.p.shifter.io:20790'}, {'http': 'http://hades.p.shifter.io:20791', 'https': 'http://hades.p.shifter.io:20791'}, {'http': 'http://hades.p.shifter.io:20792', 'https': 'http://hades.p.shifter.io:20792'}, {'http': 'http://hades.p.shifter.io:20793', 'https': 'http://hades.p.shifter.io:20793'}, {'http': 'http://hades.p.shifter.io:20794', 'https': 'http://hades.p.shifter.io:20794'}, {'http': 'http://hades.p.shifter.io:20795', 'https': 'http://hades.p.shifter.io:20795'}, {'http': 'http://hades.p.shifter.io:20796', 'https': 'http://hades.p.shifter.io:20796'}, {'http': 'http://hades.p.shifter.io:20797', 'https': 'http://hades.p.shifter.io:20797'}, {'http': 'http://hades.p.shifter.io:20798', 'https': 'http://hades.p.shifter.io:20798'}, {'http': 'http://hades.p.shifter.io:20799', 'https': 'http://hades.p.shifter.io:20799'}, {'http': 'http://hades.p.shifter.io:20800', 'https': 'http://hades.p.shifter.io:20800'}, {'http': 'http://hades.p.shifter.io:20801', 'https': 'http://hades.p.shifter.io:20801'}, {'http': 'http://hades.p.shifter.io:20802', 'https': 'http://hades.p.shifter.io:20802'}, {'http': 'http://hades.p.shifter.io:20803', 'https': 'http://hades.p.shifter.io:20803'}, {'http': 'http://hades.p.shifter.io:20804', 'https': 'http://hades.p.shifter.io:20804'}, {'http': 'http://hades.p.shifter.io:20805', 'https': 'http://hades.p.shifter.io:20805'}, {'http': 'http://hades.p.shifter.io:20806', 'https': 'http://hades.p.shifter.io:20806'}, {'http': 'http://hades.p.shifter.io:20807', 'https': 'http://hades.p.shifter.io:20807'}, {'http': 'http://hades.p.shifter.io:20808', 'https': 'http://hades.p.shifter.io:20808'}, {'http': 'http://hades.p.shifter.io:20809', 'https': 'http://hades.p.shifter.io:20809'}, {'http': 'http://hades.p.shifter.io:20810', 'https': 'http://hades.p.shifter.io:20810'}, {'http': 'http://hades.p.shifter.io:20811', 'https': 'http://hades.p.shifter.io:20811'}, {'http': 'http://hades.p.shifter.io:20812', 'https': 'http://hades.p.shifter.io:20812'}, {'http': 'http://hades.p.shifter.io:20813', 'https': 'http://hades.p.shifter.io:20813'}, {'http': 'http://hades.p.shifter.io:20814', 'https': 'http://hades.p.shifter.io:20814'}, {'http': 'http://hades.p.shifter.io:20815', 'https': 'http://hades.p.shifter.io:20815'}, {'http': 'http://hades.p.shifter.io:20816', 'https': 'http://hades.p.shifter.io:20816'}, {'http': 'http://hades.p.shifter.io:20817', 'https': 'http://hades.p.shifter.io:20817'}, {'http': 'http://hades.p.shifter.io:20818', 'https': 'http://hades.p.shifter.io:20818'}, {'http': 'http://hades.p.shifter.io:20819', 'https': 'http://hades.p.shifter.io:20819'}, {'http': 'http://hades.p.shifter.io:20820', 'https': 'http://hades.p.shifter.io:20820'}, {'http': 'http://hades.p.shifter.io:20821', 'https': 'http://hades.p.shifter.io:20821'}, {'http': 'http://hades.p.shifter.io:20822', 'https': 'http://hades.p.shifter.io:20822'}, {'http': 'http://hades.p.shifter.io:20823', 'https': 'http://hades.p.shifter.io:20823'}, {'http': 'http://hades.p.shifter.io:20824', 'https': 'http://hades.p.shifter.io:20824'}, {'http': 'http://hades.p.shifter.io:20825', 'https': 'http://hades.p.shifter.io:20825'}, {'http': 'http://hades.p.shifter.io:20826', 'https': 'http://hades.p.shifter.io:20826'}, {'http': 'http://hades.p.shifter.io:20827', 'https': 'http://hades.p.shifter.io:20827'}, {'http': 'http://hades.p.shifter.io:20828', 'https': 'http://hades.p.shifter.io:20828'}, {'http': 'http://hades.p.shifter.io:20829', 'https': 'http://hades.p.shifter.io:20829'}, {'http': 'http://hades.p.shifter.io:20830', 'https': 'http://hades.p.shifter.io:20830'}, {'http': 'http://hades.p.shifter.io:20831', 'https': 'http://hades.p.shifter.io:20831'}, {'http': 'http://hades.p.shifter.io:20832', 'https': 'http://hades.p.shifter.io:20832'}, {'http': 'http://hades.p.shifter.io:20833', 'https': 'http://hades.p.shifter.io:20833'}, {'http': 'http://hades.p.shifter.io:20834', 'https': 'http://hades.p.shifter.io:20834'}, {'http': 'http://hades.p.shifter.io:20835', 'https': 'http://hades.p.shifter.io:20835'}, {'http': 'http://hades.p.shifter.io:20836', 'https': 'http://hades.p.shifter.io:20836'}, {'http': 'http://hades.p.shifter.io:20837', 'https': 'http://hades.p.shifter.io:20837'}, {'http': 'http://hades.p.shifter.io:20838', 'https': 'http://hades.p.shifter.io:20838'}, {'http': 'http://hades.p.shifter.io:20839', 'https': 'http://hades.p.shifter.io:20839'}]
 
 url = "https://main.m.taobao.com/"
-proxies = {"http": "http://hades.p.shifter.io:20759","https": "http://hades.p.shifter.io:20759"}
+# proxies = {"http": "http://hades.p.shifter.io:20759","https": "http://hades.p.shifter.io:20759"}
 # proxies = None
 # proxies = {"https":"http://127.0.0.1:8888"}
 
 import logging
 logging.basicConfig(level=logging.DEBUG, format="%(message)s")
 logger = logging.getLogger()
-
+def random_prox():
+    return random.choice(Proxies_list)
 
 def get_cna(session):
     """
@@ -62,7 +83,7 @@ def get_cna(session):
         'cache-control': 'no-cache',
         'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"',
         'sec-ch-ua-mobile': '?0',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36',
+        'user-agent': Random_UA(),
         'sec-ch-ua-platform': '"Windows"',
         'accept': '*/*',
         'sec-fetch-site': 'cross-site',
@@ -74,7 +95,8 @@ def get_cna(session):
     for i in range(10):
         try:
             url = "https://log.mmstat.com/eg.js?t={}".format(int(time.time() * 1000))
-            session.get(url, headers=headers, proxies=proxies, timeout=30)
+            # session.get(url, headers=headers, proxies=proxies, timeout=30)
+            session.get(url, headers=headers, proxies=random_prox(), timeout=30)
             if "cna" in session.cookies.get_dict():
                 break
         except Exception as e:
@@ -98,7 +120,7 @@ def get_cookie2(ps):
         'sec-ch-ua-mobile': '?1',
         'sec-ch-ua-platform': '"Android"',
         'upgrade-insecure-requests': '1',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36',
+        'user-agent': Random_UA(),
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
         'sec-fetch-site': 'none',
         'sec-fetch-mode': 'navigate',
@@ -109,7 +131,8 @@ def get_cookie2(ps):
     for i in range(10):
         url = "https://login.m.taobao.com/login.htm"
         try:
-            session.get(url, headers=headers, proxies=proxies, timeout=30)
+            # session.get(url, headers=headers, proxies=proxies, timeout=30)
+            session.get(url, headers=headers, proxies=random_prox(), timeout=30)
         except:
             continue
         if "cookie2" in session.cookies.get_dict():
@@ -135,7 +158,7 @@ def get_api_resp(data, session):
         'Cache-Control': 'no-cache',
         'sec-ch-ua': '" Not;A Brand";v="99", "Google Chrome";v="97", "Chromium";v="97"',
         'sec-ch-ua-mobile': '?0',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36',
+        'user-agent': Random_UA(),
         'sec-ch-ua-platform': '"Windows"',
         'Accept': '*/*',
         'Sec-Fetch-Site': 'same-site',
@@ -162,7 +185,8 @@ def get_api_resp(data, session):
     url = "https://h5api.m.taobao.com/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0/?" + urllib.urlencode(post_data)
     for i in range(10):
         try:
-            resp = session.get(url, headers=headers, proxies=proxies, verify=False, cookies=cookies, timeout=40)
+            # resp = session.get(url, headers=headers, proxies=proxies, verify=False, cookies=cookies, timeout=40)
+            resp = session.get(url, headers=headers, proxies=random_prox(), verify=False, cookies=cookies, timeout=40)
             break
         except:
             continue
@@ -217,7 +241,7 @@ def get(data, cookies=None):
         'Cache-Control': 'no-cache',
         'sec-ch-ua': '" Not;A Brand";v="99", "Google Chrome";v="97", "Chromium";v="97"',
         'sec-ch-ua-mobile': '?0',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36',
+        'user-agent': Random_UA(),
         'sec-ch-ua-platform': '"Windows"',
         'Accept': '*/*',
         'Sec-Fetch-Site': 'same-site',
@@ -250,7 +274,8 @@ def get(data, cookies=None):
     url = "https://h5api.m.taobao.com/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0/?" + urllib.urlencode(
         post_data)
     headers["Referer"] = "https://main.m.taobao.com/search/index.html?pageType=3&q={}".format(seed["keyword"])
-    resp = session.get(url, headers=headers, proxies=proxies, verify=False, cookies=cookies)
+    # resp = session.get(url, headers=headers, proxies=proxies, verify=False, cookies=cookies)
+    resp = session.get(url, headers=headers, proxies=random_prox(), verify=False, cookies=cookies)
     data = resp.text.split("(",1)[1].strip(") ")
     # print(data)
     data = json.loads(data)
@@ -271,7 +296,7 @@ def get(data, cookies=None):
         # da = "title:{},item_id:{},price:{},category:{},sales:{}".format(item.get("title"),item_id,price,item.get("category"),item.get("sold"))
         logger.info(da)
 
-        with open('content213.txt', 'a+') as f:
+        with open('content1.txt', 'a+') as f:
             f.write(da.encode('utf-8')+'\n')
 
     if repeat:
@@ -279,7 +304,7 @@ def get(data, cookies=None):
     return data,itemids
 
 seed = {"keyword":""}
-def get_page(page,prefix,itemsids=""):
+def get_page(page,prefix,itemsids="",cook=""):
     logger.info("page:{}".format(page))
     params = OrderedDict(
         {"isBeta": "false", "grayHair": "false", "appId": "29859", "from": "nt_history", "brand": "HUAWEI",
@@ -335,101 +360,19 @@ def get_page(page,prefix,itemsids=""):
     print params
     data = json.dumps({"appId": "29859", "params": params}, ensure_ascii=False, separators=(",", ":"))
 
-    items,itemids = get(data, cookies=cookies)
+    items,itemids = get(data, cookies=cook)
 
     return itemids
 
 
-if __name__ == "__main__":
-    # if len(sys.argv) > 1:
-    #     get_page(int(sys.argv[1]), "default_requests_params_cats")
-    #     page = sys.argv[1]
-    # else:
-    #     import subprocess
-    #     # for page in range(201,300):
-    #     for i in range(1,200):
-    #         subprocess.check_output("python test.py {}".format(i))
-    #         # time.sleep(10)
-    # get_page(6,"default_requests_params_cats_shoudong")
-    # cookies = {
-    #     'cna': 'lDTAGmVEd0cCAd9oJ3s2lnwL',
-    #     # 'miid': '6029581491429530031',
-    #     # 'lgc': '%5Cu7F8E%5Cu675C%5Cu838E%5Cu548C%5Cu7F8E%5Cu675C%5Cu7F57',
-    #     # 'tracknick': '%5Cu7F8E%5Cu675C%5Cu838E%5Cu548C%5Cu7F8E%5Cu675C%5Cu7F57',
-    #     # '_cc_': 'UtASsssmfA%3D%3D',
-    #     # 'thw': 'cn',
-    #     # 'enc': 'ypFUmHyejcwRpZT4yn42L8bfAky54ccRDptFJGr0Td0Wf6xLBCcLA4dYzSEs5hYP5gXlvnyqyjogSuudRtOcTA%3D%3D',
-    #     # 't': '31d65b12c27abfa551c8fd9c7536cfac',
-    #     # 'sgcookie': 'E100yx9eDyM7KhWJnRUs8lqB3FnAjlTfzdXlLjUNnHEBaBE4eVJ0Sdkaw2fvn7fwwpxSOGd44sr05C0ijR%2BOQYTZsU6IcOiq%2Bjzr1CLp%2BahV3Wz2zgm9z6qmsweRkYb1roKC',
-    #     # 'uc3': 'lg2=VFC%2FuZ9ayeYq2g%3D%3D&vt3=F8dCvCh0857LsJjrFk0%3D&id2=UU6hRiHjBYpRsQ%3D%3D&nk2=oHpU%2FMQV1Vw7pGTpt4A%3D',
-    #     # 'uc4': 'id4=0%40U2xsBh9YrBMuw9kH7bwHFcYUlHUs&nk4=0%40oijSy3iq9ZVgrPDXlvNDlfNGiv3H2Qaeyg%3D%3D',
-    #     # 'mt': 'ci=3_1',
-    #     # 'tfstk': 'c4L5Buq-U827WbiUzQGq8eMsFRbdCmV1O06kNxaJKAqjJSGlny1mLPWsnZ-3pw5dG',
-    #     # 'l': 'eBjidETlLsWxqyP1BOfZlurza77TDIRAguPzaNbMiOCPOYfBR6RdB62YtPL6CnGVh6zvR3WK4ADXBeYBqHKKnxvTzmyFkCDmn',
-    #     '_m_h5_tk': 'd4f1d0205f1d31af82780eb80f8be8c1_1650005225100',
-    #     '_m_h5_tk_enc': '0dedd13260c86c884cea659b9b413b48',
-    #     # 'isg': 'BBERRj0xF3cNeHsHamTLRaA4IB2rfoXwzkjR-vOiAFgSmjDsOsq0wcm8PG58kh0o',
-    # }
-    # title: 趣多多大块曲奇饼干黑巧克力味营养早餐网红休闲零食144g食品, item_id: 623590269511, price: 13.90, category: 124302001, sales: None
-    # title: 饼干200g整箱爆浆曲奇小丸子, item_id: 645082319658, price: 15.80, category: None, sales: 63887
-    # title: 趣多多爆逗曲奇粒粒巧克力味96g大块巧克力饼干网红零食曲奇饼干, item_id: 641821677713, price: 30.0030.0060.00, category: 124302001, sales: None
-    # title: 百草味蔓越莓曲奇饼干零食小吃, item_id: 44800690064, price: 6.50, category: None, sales: 41400
-    # title: 百草味手工点心蔓越莓曲奇网红, item_id: 42106811504, price: 18.90, category: None, sales: 27059
-    # title: 曲奇独立包装饼干零食, item_id: 619040171970, price: 29.90, category: None, sales: 22395
-    # title: 趣多多曲奇巧克力味饼干早餐速食网红休闲儿童办公室小零食170g, item_id: 623864694989, price: 23.90, category: 124302001, sales: None
-    # title: 趣多多香脆礼盒装儿童曲奇饼干, item_id: 598439456837, price: None, category: None, sales: 18468
-    # title: 好吃点饼干可爱熊字饼115g休闲食品儿童营养酥脆饼干零食点心小吃, item_id: 12472919348, price: 2.902.90, category: 124302001, sales: None
-    # title: 夹心饼干爆浆下午茶曲奇蔓越莓, item_id: 619162735760, price: 9.90, category: None, sales: 21442
+def runspider():
     cookies = gen_cookie()
     print cookies
-    # cookies = {'_m_h5_tk_enc': 'b614bca4d2a6e2b4e453aad23c2dd67e', '_m_h5_tk': '5dd106d8a2e500ace7c959b1566ba725_1650265144046', 'cna': 'q9XjGuba2lACAbockE7gmX/8'}
-    # cookies = {
-    #     'cna': '/RbcGaCobjQCAXLyIXcnivg+',
-    #     'WAPFDFDTGFG': '%2B4cMKKP%2B8PI%2Bu6jNGXoNESTzlpfErSNMldm4zNGVjQU%3D',
-    #     '_w_app_lg': '0',
-    #     'tracknick': '%5Cu7F8E%5Cu675C%5Cu838E%5Cu548C%5Cu7F8E%5Cu675C%5Cu7F57',
-    #     'thw': 'cn',
-    #     't': '9d9948d5f9f36a97c28b7d496874c266',
-    #     '_m_h5_tk': '69c1d408b689cd48f363a3c8d94c838d_1650265354045',
-    #     '_m_h5_tk_enc': '19e8288bdcb902cef95624bdcc039c7b',
-    #     '_samesite_flag_': 'true',
-    #     'cookie2': '10dd68ce9b1fae9756394808fc410499',
-    #     '_tb_token_': 'e68373b8b5e56',
-    #     'xlly_s': '1',
-    #     'sgcookie': 'E100CRML%2FJTuLEqfDxuOFLfbFZCDD7D3fYfH9zPyyNLEOutSwhpjU10Ckbs%2BO7fyUkuoftwjNThRWIoIRpDzjeHV8EVw2fSePosaeENm6LklBYKV%2FWJCy5PVHMmR%2BrP5EjHa',
-    #     'ockeqeudmj': 'tsUp3Mw%3D',
-    #     '_w_tb_nick': '%E7%BE%8E%E6%9D%9C%E8%8E%8E%E5%92%8C%E7%BE%8E%E6%9D%9C%E7%BD%97',
-    #     'munb': '2602165130',
-    #     'unb': '2602165130',
-    #     'uc3': 'vt3=F8dCvCh89yTQUYYmcQs%3D&lg2=V32FPkk%2Fw0dUvg%3D%3D&nk2=oHpU%2FMQV1Vw7pGTpt4A%3D&id2=UU6hRiHjBYpRsQ%3D%3D',
-    #     'uc1': 'existShop=false&cookie15=Vq8l%2BKCLz3%2F65A%3D%3D&cookie14=UoexMn5uVSgPug%3D%3D&cookie21=VT5L2FSpdeCjwGS%2FFqZpWg%3D%3D',
-    #     'csg': '563e6766',
-    #     'lgc': '%5Cu7F8E%5Cu675C%5Cu838E%5Cu548C%5Cu7F8E%5Cu675C%5Cu7F57',
-    #     'ntm': '0',
-    #     'cancelledSubSites': 'empty',
-    #     'cookie17': 'UU6hRiHjBYpRsQ%3D%3D',
-    #     'dnk': '%5Cu7F8E%5Cu675C%5Cu838E%5Cu548C%5Cu7F8E%5Cu675C%5Cu7F57',
-    #     'skt': 'bde68712e1373974',
-    #     'uc4': 'nk4=0%40oijSy3iq9ZVgrPDXlvNDlfNHgmajsRLjtg%3D%3D&id4=0%40U2xsBh9YrBMuw9kH7b2oRr072k7n',
-    #     '_cc_': 'UtASsssmfA%3D%3D',
-    #     '_l_g_': 'Ug%3D%3D',
-    #     'sg': '%E7%BD%9704',
-    #     '_nk_': '%5Cu7F8E%5Cu675C%5Cu838E%5Cu548C%5Cu7F8E%5Cu675C%5Cu7F57',
-    #     'cookie1': 'B0ADLuVm01eV3zl5Kr10vD%2FnP1HXPNt85sKCDAJ3ZaM%3D',
-    #     'tfstk': 'c9qFBgGFDDJzGco5kDiPNLcbem3daurgAskK-sqW8GZ9gB3ngsmpwAbW-rzvyg3h.',
-    #     'l': 'eBaQl9XegiFxyKdZBOfZrurza7rEjIREIuPzaNbMiOCP9MCH5hZFW62dzmYMCnNRnsQkj35i5nQgBjTLryzBQxv9-eM_P-ionddC.',
-    #     'isg': 'BF5e4N8OsNUO6-c4EK3BKcaBr_agHyKZQlEZ5Qjny6GEK_wFcK9tqdHNJ3GCIhqx',
-    # }
-
-    # cookies = {'_m_h5_tk_enc': '6b2b5366c46df176fa1fe63c786b24ec', '_m_h5_tk': '86649500148ad058273b3b11dbc2c4bf_1650012924183', 'cna': 'pQDgGtm2gWoCAWB+Z0PlLWb0'}
-    # cookies = {'_m_h5_tk_enc': 'cf1d60d48bffee3e07155e29c80734aa', '_m_h5_tk': 'f39cc2f0eea23422aed5c068ae97e511_1650022553915', 'cna': '+QvgGrqDBT0CAVZ8Siu26da0'}
-    print(cookies)
-    items= []
-    # get_page(134, "dddsda", ",".join(items))
+    items = []
     for i in range(1,201):
         for j in range(200):
             try:
-                get_page(i, "dddsda",",".join(items))
+                get_page(i, "dddsda",",".join(items),cookies)
                 # time.sleep(3)
                 break
             except Exception as e:
@@ -438,57 +381,4 @@ if __name__ == "__main__":
                 continue
         # time.sleep(3)
     print(len(allitemsdep))
-
-    # def th_get_page(page,prefix,itemsids):
-    #
-    #     try:
-    #         get_page(page,prefix,itemsids)
-    #     except:
-    #         pass
-    #
-    # items = []
-    # import threading
-    # pools = []
-    # # items = get_page(7, "code_cookie", ",".join(items))
-    # for page in range(1,200):
-    #     p = threading.Thread(target=th_get_page,kwargs={"page":page,"prefix":"11","itemsids":""})
-    #     pools .append(p)
-    #     p.start()
-    # for p in pools:
-    #     p.join()
-    # print(len(allitemsdep))
-#
-
-
-# 服务器和本地限速3s 1。服务器 2。本地
-# 1。
-# 去重前 抓取数据： 2110,2500,2000,2000,2000
-# 去重后 抓取数据： 2000,2000,2000,2000,2000
-# 2。
-# 去重前 抓取数据： 2239,2120,2000,2030,2019,2070
-# 去重后 抓取数据： 2129,2000,2000,2000,1989,2000
-#
-# 服务器和本地不限速限速 1。服务器 2。本地
-# 1。
-# 去重前 抓取数据： 1999,2460,2080,2000,2050
-# 去重后 抓取数据： 1999,2009,2000,2000,2000
-# 2。
-# 去重前 抓取数据： 2020,1700,2000,2060,1910,2000
-# 去重后 抓取数据： 2000,1620,2000,2000,1910,2000
-#
-# 服务器 不带cid
-# 去重前 抓取数据： 490465
-# 去重后 抓取数据： 24484
-
-# mac ua
-# 去重前 抓取数据： 3560
-# 去重后 抓取数据： 2339
-# win ua
-# 去重前 抓取数据： 3210
-# 去重后 抓取数据： 2415
-# 手机 ua-safari
-# 去重前 抓取数据： 2000，2000
-# 去重后 抓取数据： 2000，2000
-# 手机 ua-Google
-# 去重前 抓取数据： 2000，2000
-# 去重后 抓取数据： 2000，2000
+runspider()

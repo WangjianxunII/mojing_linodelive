@@ -63,7 +63,7 @@ class CLEAN_DATA:
 
 clean_data = CLEAN_DATA()
 # clean_data.get_content()
-# clean_data.get_content2()
-clean_data.get_content3()
+clean_data.get_content2()
+# clean_data.get_content3()
 
 #worker starting
