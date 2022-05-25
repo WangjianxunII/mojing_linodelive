@@ -10,6 +10,7 @@ class CLEAN_DATA:
     def get_Ua(self):
         with open('/share/home/wangjianxun/mobile_ua.txt', 'r') as f:
             all_content = f.readlines()
+            print len(all_content)
             print all_content[:10]
 
     def get_content(self):
