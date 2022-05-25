@@ -30,7 +30,7 @@ class CLEAN_DATA:
 
     def get_content2(self):
         # with open('wangtest.txt','r') as f:
-        with open('content213.txt', 'r') as f:
+        with open('content1.txt', 'r') as f:
             all_content = f.read()
             datalist = re.findall(',item_id:(.*?),price', all_content)
             d_count = len(datalist)
