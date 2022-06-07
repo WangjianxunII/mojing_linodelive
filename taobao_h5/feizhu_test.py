@@ -25,6 +25,27 @@ class MyHTTP20Adapter(HTTP20Adapter):
         super(MyHTTP20Adapter, self).__init__(*args, **kwargs)
         super(HTTP20Adapter, self).__init__(*args, **kwargs)
 
+def abuyun_proxy():
+    proxyHost = "http-dyn.abuyun.com"
+    proxyPort = "9020"
+
+    # 代理隧道验证信息
+    proxyUser = "H7ODW0OGV50UH6ED"
+    proxyPass = "A30B3B2097937505"
+
+    proxyMeta = "http://%(user)s:%(pass)s@%(host)s:%(port)s" % {
+        "host": proxyHost,
+        "port": proxyPort,
+        "user": proxyUser,
+        "pass": proxyPass,
+    }
+
+    proxies = {
+        "http": proxyMeta,
+        "https": proxyMeta,
+    }
+    return proxies
+
 def Random_UA():
     UA = [
         'Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 8 SE Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 Quark/3.0.4.945 Mobile Safari/537.36',
@@ -41,6 +62,9 @@ def Random_UA():
         'Mozilla/5.0 (Linux; U; Android 11; zh-cn; PDHM00 Build/RKQ1.200710.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/11.2 Mobile Safari/537.36 COVC/045517',
         'Mozilla/5.0 (Linux; Android 11; SM-G9860) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Mobile Safari/537.36',
         'Mozilla/5.0 (Linux; U; Android 11; zh-cn; Mi9 Pro 5G Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3945.147 Mobile Safari/537.36 XiaoMi/MiuiBrowser/13.7.15',
+          ]
+    UA = [
+        'Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 8 SE Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 Quark/3.0.4.945 Mobile Safari/537.36',
           ]
     return random.choice(UA)
 def request(self, method, url, clear_headers=False, http2=False, **kwargs):
@@ -63,7 +87,7 @@ import time
 Proxies_list = [{'http': 'http://hades.p.shifter.io:20740', 'https': 'http://hades.p.shifter.io:20740'}, {'http': 'http://hades.p.shifter.io:20741', 'https': 'http://hades.p.shifter.io:20741'}, {'http': 'http://hades.p.shifter.io:20742', 'https': 'http://hades.p.shifter.io:20742'}, {'http': 'http://hades.p.shifter.io:20743', 'https': 'http://hades.p.shifter.io:20743'}, {'http': 'http://hades.p.shifter.io:20744', 'https': 'http://hades.p.shifter.io:20744'}, {'http': 'http://hades.p.shifter.io:20745', 'https': 'http://hades.p.shifter.io:20745'}, {'http': 'http://hades.p.shifter.io:20746', 'https': 'http://hades.p.shifter.io:20746'}, {'http': 'http://hades.p.shifter.io:20747', 'https': 'http://hades.p.shifter.io:20747'}, {'http': 'http://hades.p.shifter.io:20748', 'https': 'http://hades.p.shifter.io:20748'}, {'http': 'http://hades.p.shifter.io:20749', 'https': 'http://hades.p.shifter.io:20749'}, {'http': 'http://hades.p.shifter.io:20750', 'https': 'http://hades.p.shifter.io:20750'}, {'http': 'http://hades.p.shifter.io:20751', 'https': 'http://hades.p.shifter.io:20751'}, {'http': 'http://hades.p.shifter.io:20752', 'https': 'http://hades.p.shifter.io:20752'}, {'http': 'http://hades.p.shifter.io:20753', 'https': 'http://hades.p.shifter.io:20753'}, {'http': 'http://hades.p.shifter.io:20754', 'https': 'http://hades.p.shifter.io:20754'}, {'http': 'http://hades.p.shifter.io:20755', 'https': 'http://hades.p.shifter.io:20755'}, {'http': 'http://hades.p.shifter.io:20756', 'https': 'http://hades.p.shifter.io:20756'}, {'http': 'http://hades.p.shifter.io:20757', 'https': 'http://hades.p.shifter.io:20757'}, {'http': 'http://hades.p.shifter.io:20758', 'https': 'http://hades.p.shifter.io:20758'}, {'http': 'http://hades.p.shifter.io:20759', 'https': 'http://hades.p.shifter.io:20759'}, {'http': 'http://hades.p.shifter.io:20760', 'https': 'http://hades.p.shifter.io:20760'}, {'http': 'http://hades.p.shifter.io:20761', 'https': 'http://hades.p.shifter.io:20761'}, {'http': 'http://hades.p.shifter.io:20762', 'https': 'http://hades.p.shifter.io:20762'}, {'http': 'http://hades.p.shifter.io:20763', 'https': 'http://hades.p.shifter.io:20763'}, {'http': 'http://hades.p.shifter.io:20764', 'https': 'http://hades.p.shifter.io:20764'}, {'http': 'http://hades.p.shifter.io:20765', 'https': 'http://hades.p.shifter.io:20765'}, {'http': 'http://hades.p.shifter.io:20766', 'https': 'http://hades.p.shifter.io:20766'}, {'http': 'http://hades.p.shifter.io:20767', 'https': 'http://hades.p.shifter.io:20767'}, {'http': 'http://hades.p.shifter.io:20768', 'https': 'http://hades.p.shifter.io:20768'}, {'http': 'http://hades.p.shifter.io:20769', 'https': 'http://hades.p.shifter.io:20769'}, {'http': 'http://hades.p.shifter.io:20770', 'https': 'http://hades.p.shifter.io:20770'}, {'http': 'http://hades.p.shifter.io:20771', 'https': 'http://hades.p.shifter.io:20771'}, {'http': 'http://hades.p.shifter.io:20772', 'https': 'http://hades.p.shifter.io:20772'}, {'http': 'http://hades.p.shifter.io:20773', 'https': 'http://hades.p.shifter.io:20773'}, {'http': 'http://hades.p.shifter.io:20774', 'https': 'http://hades.p.shifter.io:20774'}, {'http': 'http://hades.p.shifter.io:20775', 'https': 'http://hades.p.shifter.io:20775'}, {'http': 'http://hades.p.shifter.io:20776', 'https': 'http://hades.p.shifter.io:20776'}, {'http': 'http://hades.p.shifter.io:20777', 'https': 'http://hades.p.shifter.io:20777'}, {'http': 'http://hades.p.shifter.io:20778', 'https': 'http://hades.p.shifter.io:20778'}, {'http': 'http://hades.p.shifter.io:20779', 'https': 'http://hades.p.shifter.io:20779'}, {'http': 'http://hades.p.shifter.io:20780', 'https': 'http://hades.p.shifter.io:20780'}, {'http': 'http://hades.p.shifter.io:20781', 'https': 'http://hades.p.shifter.io:20781'}, {'http': 'http://hades.p.shifter.io:20782', 'https': 'http://hades.p.shifter.io:20782'}, {'http': 'http://hades.p.shifter.io:20783', 'https': 'http://hades.p.shifter.io:20783'}, {'http': 'http://hades.p.shifter.io:20784', 'https': 'http://hades.p.shifter.io:20784'}, {'http': 'http://hades.p.shifter.io:20785', 'https': 'http://hades.p.shifter.io:20785'}, {'http': 'http://hades.p.shifter.io:20786', 'https': 'http://hades.p.shifter.io:20786'}, {'http': 'http://hades.p.shifter.io:20787', 'https': 'http://hades.p.shifter.io:20787'}, {'http': 'http://hades.p.shifter.io:20788', 'https': 'http://hades.p.shifter.io:20788'}, {'http': 'http://hades.p.shifter.io:20789', 'https': 'http://hades.p.shifter.io:20789'}, {'http': 'http://hades.p.shifter.io:20790', 'https': 'http://hades.p.shifter.io:20790'}, {'http': 'http://hades.p.shifter.io:20791', 'https': 'http://hades.p.shifter.io:20791'}, {'http': 'http://hades.p.shifter.io:20792', 'https': 'http://hades.p.shifter.io:20792'}, {'http': 'http://hades.p.shifter.io:20793', 'https': 'http://hades.p.shifter.io:20793'}, {'http': 'http://hades.p.shifter.io:20794', 'https': 'http://hades.p.shifter.io:20794'}, {'http': 'http://hades.p.shifter.io:20795', 'https': 'http://hades.p.shifter.io:20795'}, {'http': 'http://hades.p.shifter.io:20796', 'https': 'http://hades.p.shifter.io:20796'}, {'http': 'http://hades.p.shifter.io:20797', 'https': 'http://hades.p.shifter.io:20797'}, {'http': 'http://hades.p.shifter.io:20798', 'https': 'http://hades.p.shifter.io:20798'}, {'http': 'http://hades.p.shifter.io:20799', 'https': 'http://hades.p.shifter.io:20799'}, {'http': 'http://hades.p.shifter.io:20800', 'https': 'http://hades.p.shifter.io:20800'}, {'http': 'http://hades.p.shifter.io:20801', 'https': 'http://hades.p.shifter.io:20801'}, {'http': 'http://hades.p.shifter.io:20802', 'https': 'http://hades.p.shifter.io:20802'}, {'http': 'http://hades.p.shifter.io:20803', 'https': 'http://hades.p.shifter.io:20803'}, {'http': 'http://hades.p.shifter.io:20804', 'https': 'http://hades.p.shifter.io:20804'}, {'http': 'http://hades.p.shifter.io:20805', 'https': 'http://hades.p.shifter.io:20805'}, {'http': 'http://hades.p.shifter.io:20806', 'https': 'http://hades.p.shifter.io:20806'}, {'http': 'http://hades.p.shifter.io:20807', 'https': 'http://hades.p.shifter.io:20807'}, {'http': 'http://hades.p.shifter.io:20808', 'https': 'http://hades.p.shifter.io:20808'}, {'http': 'http://hades.p.shifter.io:20809', 'https': 'http://hades.p.shifter.io:20809'}, {'http': 'http://hades.p.shifter.io:20810', 'https': 'http://hades.p.shifter.io:20810'}, {'http': 'http://hades.p.shifter.io:20811', 'https': 'http://hades.p.shifter.io:20811'}, {'http': 'http://hades.p.shifter.io:20812', 'https': 'http://hades.p.shifter.io:20812'}, {'http': 'http://hades.p.shifter.io:20813', 'https': 'http://hades.p.shifter.io:20813'}, {'http': 'http://hades.p.shifter.io:20814', 'https': 'http://hades.p.shifter.io:20814'}, {'http': 'http://hades.p.shifter.io:20815', 'https': 'http://hades.p.shifter.io:20815'}, {'http': 'http://hades.p.shifter.io:20816', 'https': 'http://hades.p.shifter.io:20816'}, {'http': 'http://hades.p.shifter.io:20817', 'https': 'http://hades.p.shifter.io:20817'}, {'http': 'http://hades.p.shifter.io:20818', 'https': 'http://hades.p.shifter.io:20818'}, {'http': 'http://hades.p.shifter.io:20819', 'https': 'http://hades.p.shifter.io:20819'}, {'http': 'http://hades.p.shifter.io:20820', 'https': 'http://hades.p.shifter.io:20820'}, {'http': 'http://hades.p.shifter.io:20821', 'https': 'http://hades.p.shifter.io:20821'}, {'http': 'http://hades.p.shifter.io:20822', 'https': 'http://hades.p.shifter.io:20822'}, {'http': 'http://hades.p.shifter.io:20823', 'https': 'http://hades.p.shifter.io:20823'}, {'http': 'http://hades.p.shifter.io:20824', 'https': 'http://hades.p.shifter.io:20824'}, {'http': 'http://hades.p.shifter.io:20825', 'https': 'http://hades.p.shifter.io:20825'}, {'http': 'http://hades.p.shifter.io:20826', 'https': 'http://hades.p.shifter.io:20826'}, {'http': 'http://hades.p.shifter.io:20827', 'https': 'http://hades.p.shifter.io:20827'}, {'http': 'http://hades.p.shifter.io:20828', 'https': 'http://hades.p.shifter.io:20828'}, {'http': 'http://hades.p.shifter.io:20829', 'https': 'http://hades.p.shifter.io:20829'}, {'http': 'http://hades.p.shifter.io:20830', 'https': 'http://hades.p.shifter.io:20830'}, {'http': 'http://hades.p.shifter.io:20831', 'https': 'http://hades.p.shifter.io:20831'}, {'http': 'http://hades.p.shifter.io:20832', 'https': 'http://hades.p.shifter.io:20832'}, {'http': 'http://hades.p.shifter.io:20833', 'https': 'http://hades.p.shifter.io:20833'}, {'http': 'http://hades.p.shifter.io:20834', 'https': 'http://hades.p.shifter.io:20834'}, {'http': 'http://hades.p.shifter.io:20835', 'https': 'http://hades.p.shifter.io:20835'}, {'http': 'http://hades.p.shifter.io:20836', 'https': 'http://hades.p.shifter.io:20836'}, {'http': 'http://hades.p.shifter.io:20837', 'https': 'http://hades.p.shifter.io:20837'}, {'http': 'http://hades.p.shifter.io:20838', 'https': 'http://hades.p.shifter.io:20838'}, {'http': 'http://hades.p.shifter.io:20839', 'https': 'http://hades.p.shifter.io:20839'}]
 
 url = "https://main.m.taobao.com/"
-# proxies = {"http": "http://hades.p.shifter.io:20759","https": "http://hades.p.shifter.io:20759"}
+proxies = {"http": "http://hades.p.shifter.io:20759","https": "http://hades.p.shifter.io:20759"}
 # proxies = None
 # proxies = {"https":"http://127.0.0.1:8888"}
 
@@ -95,8 +119,10 @@ def get_cna(session):
     for i in range(10):
         try:
             url = "https://log.mmstat.com/eg.js?t={}".format(int(time.time() * 1000))
+            session.get(url, headers=headers, timeout=30)
             # session.get(url, headers=headers, proxies=proxies, timeout=30)
-            session.get(url, headers=headers, proxies=random_prox(), timeout=30)
+            # session.get(url, headers=headers, proxies=random_prox(), timeout=30)
+            # session.get(url, headers=headers, proxies=abuyun_proxy(), timeout=30)
             if "cna" in session.cookies.get_dict():
                 break
         except Exception as e:
@@ -131,8 +157,10 @@ def get_cookie2(ps):
     for i in range(10):
         url = "https://login.m.taobao.com/login.htm"
         try:
+            session.get(url, headers=headers, timeout=30)
             # session.get(url, headers=headers, proxies=proxies, timeout=30)
-            session.get(url, headers=headers, proxies=random_prox(), timeout=30)
+            # session.get(url, headers=headers, proxies=random_prox(), timeout=30)
+            # session.get(url, headers=headers, proxies=abuyun_proxy(), timeout=30)
         except:
             continue
         if "cookie2" in session.cookies.get_dict():
@@ -185,8 +213,10 @@ def get_api_resp(data, session):
     url = "https://h5api.m.taobao.com/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0/?" + urllib.urlencode(post_data)
     for i in range(10):
         try:
+            resp = session.get(url, headers=headers, verify=False, cookies=cookies, timeout=40)
             # resp = session.get(url, headers=headers, proxies=proxies, verify=False, cookies=cookies, timeout=40)
-            resp = session.get(url, headers=headers, proxies=random_prox(), verify=False, cookies=cookies, timeout=40)
+            # resp = session.get(url, headers=headers, proxies=random_prox(), verify=False, cookies=cookies, timeout=40)
+            # resp = session.get(url, headers=headers, proxies=abuyun_proxy(), verify=False, cookies=cookies, timeout=40)
             break
         except:
             continue
@@ -261,26 +291,28 @@ def get(data, cookies=None):
     # token = "ca17068e59dd800ed0550233884e425c"
     timestamp = int(time.time() * 1000)
     post_data = OrderedDict()
-    post_data["jsv"] = "2.6.2"
+    post_data["type"] = "originaljson"
     post_data["appKey"] = "12574478"
-    post_data["t"] = str(timestamp)
+    post_data["api"] = 'mtop.trip.tfrcs.rentcar.queryItems'
     post_data["sign"] = get_sign(token, timestamp, data)
-    post_data["api"] = "mtop.relationrecommend.WirelessRecommend.recommend"
-    post_data["v"] = "2.0"
-    post_data["type"] = "jsonp"
-    post_data["dataType"] = "jsonp"
-    post_data["callback"] = "mtopjsonp2"
+    post_data["v"] = "1.0"
     post_data["data"] = data
-    url = "https://h5api.m.taobao.com/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0/?" + urllib.urlencode(
-        post_data)
-    headers["Referer"] = "https://main.m.taobao.com/search/index.html?pageType=3&q={}".format(seed["keyword"])
+    # post_data["needLogin"] = True
+    post_data["ttid"] = '08971'
+    post_data["t"] = 1654573425182
+    # url = "https://h5api.m.taobao.com/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0/?" + urllib.urlencode(post_data)
+    url = "https://h5api.m.taobao.com/h5/mtop.trip.tfrcs.rentcar.queryItems/1.0?" + urllib.urlencode(post_data)
+    headers["Referer"] = "https://market.m.taobao.com/"
+    resp = session.get(url, headers=headers, verify=False, cookies=cookies)
     # resp = session.get(url, headers=headers, proxies=proxies, verify=False, cookies=cookies)
-    resp = session.get(url, headers=headers, proxies=random_prox(), verify=False, cookies=cookies)
+    print resp.text
+    # resp = session.get(url, headers=headers, proxies=random_prox(), verify=False, cookies=cookies)
+    # resp = session.get(url, headers=headers, proxies=abuyun_proxy(), verify=False, cookies=cookies)
     data = resp.text.split("(",1)[1].strip(") ")
     # print(data)
     data = json.loads(data)
     items = data.get("data",{}).get("itemsArray",[])
-    if len(items) == 0 :
+    if len(items) == 0:
         print(json.dumps(data))
     itemids = []
     repeat = 0
@@ -296,7 +328,7 @@ def get(data, cookies=None):
         # da = "title:{},item_id:{},price:{},category:{},sales:{}".format(item.get("title"),item_id,price,item.get("category"),item.get("sold"))
         logger.info(da)
 
-        with open('content1.txt', 'a+') as f:
+        with open('content44.txt', 'a+') as f:
             f.write(da.encode('utf-8')+'\n')
 
     if repeat:
@@ -316,7 +348,14 @@ def get_page(page,prefix,itemsids="",cook=""):
          "searchElderHomeOpen": "false", "style": "wf", "page": page ,"n": "10", "q": "防尘塞","cat":"",
          "search_action": "initiative", "sugg": "_4_1", "m": "h5", "sversion": "13.6", "prepositionVersion": "v2",
          "tab": "all", "tagSearchKeyword": None, "sort": "_sale", "filterTag": "", "prop": ""})
-
+    params = OrderedDict({"subBizType": "31", "carUseDate": "1654653600000", "carReturnDate": "1654826400000", "isDepDestDiff": "false",
+     "isCredit": "false", "isPickUpOnDoor": "false", "useNew": "true", "ttid": "08971", "disableNav": "YES",
+     "titleBarHidden": "2", "wx_navbar_transparent": "true", "wx_navbar_hidden": "true",
+     "__webview_options__": "fullscreen=YES&allowsBounceVertical=NO", "fpt": "ftid(08971)", "_projVer": "1.6.9",
+     "loadCount": 2, "sortType": 1, "originCityId": 110100, "departureCityParams": "736fa2nAVviy",
+     "departureAddressParams": "736fa2nAVviy", "destinationCityParams": "736fa2nAVviy",
+     "destinationAddressParams": "736fa2nAVviy", "bizType": 3, "contextId": "pr1YS5mJA9WzuDoSrnXV8", "pageNo": 1,
+     "pageSize": 12, "searFilterTags": "[]", "h5Version": "1.6.9"})
     # params = OrderedDict(
     #     {"appId": "29859", "from": "nt_history", "brand": "HUAWEI",
     #      "info": "wifi", "index": "4", "ttid": "600000@taobao_android_10.7.0", "needTabs": "true", "rainbow": "",
@@ -342,7 +381,7 @@ def get_page(page,prefix,itemsids="",cook=""):
     #      "prepositionVersion": "v2", "tab": "all", "channelSrp": "newh5", "tagSearchKeyword": None, "sort": "_sale",
     #      "filterTag": "", "prop": "", "itemIds": "", "itemS": (page-1) *10}
     # )
-    #
+    # 
     # params = OrderedDict(
     #     {"isBeta": "false", "grayHair": "false", "appId": "29859", "from": "nt_history", "brand": "HUAWEI",
     #      "info": "wifi", "index": "4", "ttid": "600000@taobao_android_10.7.0", "needTabs": "true", "rainbow": "",
@@ -379,6 +418,16 @@ def runspider():
                 import traceback
                 print(traceback.format_exc())
                 continue
-        # time.sleep(3)
+        time.sleep(3)
     print(len(allitemsdep))
-runspider()
+# runspider()
+cookies = gen_cookie()
+print cookies
+items = []
+i = 1
+get_page(i, "dddsda",",".join(items),cookies)
+# 2190,2000
+# 2010,2004
+# 2000，2000
+# 3700+2600+4000
+
