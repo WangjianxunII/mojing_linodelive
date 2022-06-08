@@ -58,7 +58,7 @@ def get_diff(last, curr):
         if is_leaf:
             leaf_count[key]['count'] = c_count
             leaf_count[key]['sub'] = sub_count
-            leaf_count[key]['ring']  = ring
+            leaf_count[key]['ring'] = ring
     return all_count, leaf_count
             
 
@@ -67,5 +67,5 @@ spec_cat_list = ['10000340', '10100758', '1819', '10100412', '9067', '10282', '1
                  '10000337', '10000336', '8706']
 last_count = get_data('lazada_sg_2022_04_29', spec_cat_list)
 curr_count = get_data('lazada_sg_2022_05_26', spec_cat_list)
-
-print get_diff(last_count, curr_count)
+print curr_count
+# print get_diff(last_count, curr_count)
