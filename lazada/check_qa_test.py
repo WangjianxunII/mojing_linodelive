@@ -10,6 +10,7 @@ def get_data(index, spec_cat):
     body = {"query": {"match_all": {}}}
     res = ess.search(index=index, body=body, scroll='5m', size=bulk_num, request_timeout=60)
     hits = res['hits']['hits']
+    print hits
     total = res['hits']['total']['value']
     print total
     scroll_id = res['_scroll_id']
