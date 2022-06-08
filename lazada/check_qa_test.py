@@ -9,9 +9,9 @@ def get_data(index, spec_cat):
     bulk_num = 5000
     body = {"query": {"match_all": {}}}
     res = ess.search(index=index, body=body, scroll='5m', size=bulk_num, request_timeout=60)
-    print res
     hits = res['hits']['hits']
     total = res['hits']['total']['value']
+    print total
     scroll_id = res['_scroll_id']
     f_num = total / bulk_num + 1
     spec_cat_count = {}
