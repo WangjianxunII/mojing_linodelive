@@ -1,4 +1,4 @@
-import pandas as pd
+# import pandas as pd
 from elasticsearch import Elasticsearch
 
 es = 'http://10.19.12.67:9200'
