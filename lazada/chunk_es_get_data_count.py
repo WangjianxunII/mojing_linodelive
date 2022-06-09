@@ -3,7 +3,7 @@ from elasticsearch import Elasticsearch
 
 es = 'http://10.19.12.67:9200'
 ess = Elasticsearch(es)
-index = 'lazada_vn_2022_05_27'
+index = 'lazada_id_2022_05_26'
 body = {"query": {"match_all": {}}}
 # body={
 #     "query":{
