@@ -1,1 +1,11 @@
 https://spiderlinode.moojing.com/dump?config_id=lazada_sg&hostfiles=%5B%5B%22lishoppernew18%2Clishoppernew19%22%2C%22%2Fdata%2Flazada_sg%2Flazada_sg__2022_06_08_1_rproxy.txt%22%5D%2C%5B%22lishoppernew18%2Clishoppernew19%22%2C%22%2Fdata%2Flazada_sg%2Flazada_sg__2022_06_08_2_rproxy.txt%22%5D%2C%5B%22lishoppernew18%2Clishoppernew19%22%2C%22%2Fdata%2Flazada_sg%2Flazada_sg__2022_06_08_3_rproxy.txt%22%5D%2C%5B%22lishoppernew18%2Clishoppernew19%22%2C%22%2Fdata%2Flazada_sg%2Flazada_sg__2022_06_08_4_rproxy.txt%22%5D%5D
+
+
+
+
+nohup python taobao_category_h5.py -w taobao_test010 -n 2 -p 24 -d test prepare_run &
+
+
+
+
+INFO 2022-06-10 10:31:13,438 T140625374357248 1 DUMPSTAT total output:2616 good:263 net_work:1031 KeyError:1688 get_new_ee_ERR:1056 get_list:263 ITEM419 flood:72 flood:72 parse_error:3775 throughput_instant:0.212763063619 throughput_all:0.251450667703 cost:1045.93080783 sent:63051161 recv:90700042 mem:717668 proxy_type:rproxy work_type: part:1 ts:2022_06_10 slave_no:0  active_thread:89 left:1097

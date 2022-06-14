@@ -12,7 +12,7 @@ def get_data(index, spec_cat):
     hits = res['hits']['hits'] #这是什么？
     # print hits
     total = res['hits']['total']['value']
-    print total
+    # print total
     scroll_id = res['_scroll_id']
     f_num = total / bulk_num + 1
     spec_cat_count = {}
