@@ -54,9 +54,11 @@ class CLEAN_DATA:
 
     def get_content3(self):
         # with open('wangtest.txt','r') as f:
-        with open('/data/lazada_sg/lazada_sg__2022_06_13_1_rproxy.txt', 'r') as f1:
+        # with open('/data/lazada_sg/lazada_sg__2022_06_13_1_rproxy.txt', 'r') as f1:
+        with open('./data1.txt', 'r') as f1:
             all_content1 = f1.read()
-        with open('/data/lazada_sg/lazada_sg__2022_06_13_2_rproxy.txt', 'r') as f2:
+        # with open('/data/lazada_sg/lazada_sg__2022_06_13_2_rproxy.txt', 'r') as f2:
+        with open('./data2.txt', 'r') as f2:
             all_content2 = f2.read()
         all_content = all_content1+all_content2
         print len(all_content)

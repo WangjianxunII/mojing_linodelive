@@ -404,7 +404,7 @@ def runspider():
     cookies = gen_cookie()
     print cookies
     items = []
-    for i in range(1,201):
+    for i in range(200,202):
         for j in range(200):
             try:
                 get_page(i, "dddsda",",".join(items),cookies)

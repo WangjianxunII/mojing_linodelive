@@ -69,10 +69,30 @@ class CLEAN_DATA:
             print "去重前 抓取数据：", d_count
             print "去重后 抓取数据：",len(self.data_list)
 
+    def get_content4(self):
+        # with open('wangtest.txt','r') as f:
+        with open('/data/lazada_detail/lazada_detail_sg_2022_06_13_1_rproxy.txt', 'r') as f:
+        # with open('./123.txt', 'r') as f:
+            all_content = f.read()
+            datalist = re.findall('__sold": "(.*?)", "guideApp":', all_content)
+            d_count = len(datalist)
+            sold_count = 0
+            no_sold_count = 0
+            for i in datalist[1000]:
+                print i
+                if i:
+                    sold_count += 1
+                else:
+                    no_sold_count += 1
+            print "有销量的数据：", sold_count
+            print "没有销量的数据：", no_sold_count
+            print "总商品数：",d_count
+
 clean_data = CLEAN_DATA()
 # clean_data.get_content()
 # clean_data.get_content2()
-clean_data.get_content3()
+# clean_data.get_content3()
+clean_data.get_content4()
 # clean_data.get_Ua()
 
 #worker starting
