@@ -4,8 +4,8 @@ from elasticsearch import Elasticsearch
 
 es = 'http://10.19.12.67:9200'
 ess = Elasticsearch(es)
-# 'lazada_ph_2022_05_28','lazada_th_2022_05_28','lazada_vn_2022_05_27',
-indexs = ['lazada_id_2022_05_26','lazada_my_2022_05_26','lazada_sg_2022_05_26']
+
+indexs = ['lazada_ph_2022_05_28','lazada_th_2022_05_28','lazada_vn_2022_05_27','lazada_id_2022_05_26','lazada_my_2022_05_26','lazada_sg_2022_05_26']
 
 
 # body={"query":{"match_all":{}}}

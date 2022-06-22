@@ -142,11 +142,11 @@ class CLEAN_DATA:
 
         print "有销量的数据：", len(sold_count_lsit)
 
-    def get_test_2(self):
+    def get_test_2(self,index):
         es = 'http://10.19.12.67:9200'
         ess = Elasticsearch(es)
         item_list = []
-        index = 'lazada_sg_2022_05_26'
+        # index = 'lazada_sg_2022_05_26'
         # 根据索引获取es中的数据
         bulk_num = 5000
         body = {"query": {"match_all": {}}}
@@ -162,11 +162,15 @@ class CLEAN_DATA:
                 query_scroll += hits
 
             for q in query_scroll:
-                if q.get('__sold') > 0:
-                    if q.get('__item_id') not in item_list:
+                # print q
+                # print q.get('__sold')
+                # print q.get('__item_id')
+                if q.get('_source').get('__sold') > 0:
+                    if q.get('_source').get('__item_id') not in item_list:
+                        item_list.append(q.get('_source').get('__item_id'))
                         sold_count += 1
-        print "有销量的数据：", sold_count
-        print "有销量的数据itemlist：", len(item_list)
+        print "%s，有销量的数据："% index, sold_count
+        print "%s，有销量的数据itemlist："% index, len(item_list)
     def get_content5(self):
         with open('/data/lazada_detail/lazada_detail_sg_2022_06_13_1_rproxy.txt') as f:
         # with open('./test_') as f:
@@ -191,8 +195,15 @@ clean_data = CLEAN_DATA()
 # clean_data.get_content3()
 # clean_data.get_list_content4()
 # clean_data.get_test()
-clean_data.get_test_2()
+indexs = ['lazada_ph_2022_05_28','lazada_th_2022_05_28','lazada_vn_2022_05_27','lazada_id_2022_05_26','lazada_my_2022_05_26']#,'lazada_sg_2022_05_26'
+
+for index in indexs:
+    clean_data.get_test_2(index)
 # clean_data.get_content5()
 # clean_data.get_Ua()
 
 #worker starting
+
+# 脚本单独去重item id 执行有点慢。跑完一个新加坡站 ，24w商品，itemid 去重后是14w，占比60%，按照之前详情内存占用大约每1w条数据占用1G内存的话。lazada 6个站点 skuid 与 itemid去重共计379w+数据 。估算 磁盘占用【小于400G】
+
+
