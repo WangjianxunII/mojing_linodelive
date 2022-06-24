@@ -59,8 +59,8 @@ def get_leaf_diff(last, curr):
     return all_count
 def insert_qa_result(config_id, ts, result):
     # 将QA结果写到mongo
-    insert_data = {'config_id': config_id, 'ts': ts, 'result': result}
-    db1.qa_result.insert(insert_data)
+    insert_data = {'config_id': config_id, 'ts': ts, 'result': result, 'leaf': 'true'}
+    db1.leaf_qa_result.insert(insert_data)
     print 'insert success'
 
 if __name__ == '__main__':
@@ -82,7 +82,7 @@ if __name__ == '__main__':
 
     res = get_leaf_diff(last_count, curr_count)#计算qa结果
 
-    insert_qa_result(c_config_id,c_ts,res)#qa结果存到mongo
+    insert_qa_result(c_config_id, c_ts, res)#qa结果存到mongo
     print res
 
 
