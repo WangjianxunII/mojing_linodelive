@@ -114,9 +114,8 @@ def gen_send_msg(raw_data, index):
     print msg
 
     seed_sms(msg)
-    # print msg
 def seed_sms(content):
-    bearychat.send_webhook(content, 'maweiwei')
+    bearychat.send_webhook(content, 'wangjianxun')
 
 if __name__ == '__main__':
     import sys
