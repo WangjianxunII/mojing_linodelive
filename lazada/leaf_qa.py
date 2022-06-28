@@ -3,6 +3,9 @@ import operator
 from elasticsearch import Elasticsearch
 import pymongo
 from moojing import bearychat
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 es = 'http://10.19.12.67:9200'
 ess = Elasticsearch(es)
@@ -96,24 +99,42 @@ def gen_send_msg(raw_data, index):
     sorted_negative_growth_items = sorted(negative_growth_items, key=operator.itemgetter('growth_count'), reverse=True)
     sorted_growth_items = sorted(growth_items, key=operator.itemgetter('growth_count'), reverse=True)
     # print sorted_negative_growth_items
-
+    add_count = 0
+    deduce_count = 0
+    # 构建钉钉发送通知内容
+    smsg = u'%sQA结果:\n' % index
+    smsg += u'减少叶子类目环比top50：\n'
     # 构建发送通知内容
     msg = u'%sQA结果:\n' % index
     msg += u'所有叶子类目环比:\n'
-    msg += u'增长叶子类目环比：\n'
-    for k in sorted_growth_items:
-        msg += u'类目id:%s\t类目名称:%s\t数量:%s\t环比:%.2f\t变化数量:%s\n' % (
-            k['sub_categroy_id'], k['sub_categroy_name'], k['current_count'], k['growth_rate'],
-            k['growth_count'])
     msg += u'减少叶子类目环比：\n'
     for k in sorted_negative_growth_items:
         msg += u'类目id:%s\t类目名称:%s\t数量:%s\t环比:%.2f\t变化数量:-%s\n' % (
             k['sub_categroy_id'], k['sub_categroy_name'], k['current_count'], k['growth_rate'],
             k['growth_count'])
+        deduce_count += 1
+        if deduce_count <= 50:
+            smsg += u'类目id:%s\t类目名称:%s\t数量:%s\t环比:%.2f\t变化数量:%s\n' % (
+                k['sub_categroy_id'], k['sub_categroy_name'], k['current_count'], k['growth_rate'],
+                k['growth_count'])
 
-    print msg
+    msg += u'增长叶子类目环比：\n'
+    smsg += u'增长叶子类目环比top50：\n'
+    for k in sorted_growth_items:
+        add_count += 1
+        msg += u'类目id:%s\t类目名称:%s\t数量:%s\t环比:%.2f\t变化数量:%s\n' % (
+            k['sub_categroy_id'], k['sub_categroy_name'], k['current_count'], k['growth_rate'],
+            k['growth_count'])
+        if add_count <= 50:
+            smsg += u'类目id:%s\t类目名称:%s\t数量:%s\t环比:%.2f\t变化数量:%s\n' % (
+                k['sub_categroy_id'], k['sub_categroy_name'], k['current_count'], k['growth_rate'],
+                k['growth_count'])
 
-    seed_sms(msg)
+
+    with open("./叶子类目QA结果.txt",'w+') as f:
+        f.write(msg)
+
+    seed_sms(smsg)#钉钉发送通知
 def seed_sms(content):
     bearychat.send_webhook(content, 'wangjianxun')
 
