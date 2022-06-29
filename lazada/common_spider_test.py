@@ -3,9 +3,17 @@ import json
 import random
 import re
 import urllib
+import pymongo
 
 from moojing.spiderman.lazadasign import get_data_and_header
 from moojing.spiderman.tbnewee import get_new_ee
+DOMAIN = {'my': 'lazada.com.my',  # 马来西亚
+          'id': 'lazada.co.id',  # 印度尼西亚
+          'vn': 'lazada.vn',  # 越南
+          'th': 'lazada.co.th',  # 泰国
+          'sg': 'lazada.sg',  # 新加坡
+          'ph': 'lazada.com.ph',  # 菲律宾
+          }
 
 seed = {"name" : "Men's Care", "plat" : "sg", "depth" : 2, "child_count" : 5, "category_url" : "//www.lazada.sg/shop-mens-care/", "path" : [ "965437", "1646" ], "id" : "1646" }
 # 获取类目下商品列表
@@ -69,13 +77,14 @@ def build_search_data(acm, scm, category_url, page, device_id, utd_id, reserve_p
     return parma
 
 parmas = build_search_data(acm, scm, category_url, page, device_id, utd_id, reserve_price=reserve_price)
-print 'parmas:', parmas
+# print 'parmas:', parmas
 data, headers = get_data_and_header(api, json.dumps(parmas), v, extra_params=ex_params, ee88=ee88, ee112=ee112)
-print 'data:', data
+# print 'data:', data
 print 'headers:', headers
 params = {
     "data": data['data'],
 }
 print params
-# url = "https://acs-m.%s/gw/%s/%s/" % (DOMAIN[plat], api, v)
-# print 'url:', url
+
+url = "https://acs-m.%s/gw/%s/%s/" % (DOMAIN[plat], api, v)
+print 'url:', url
