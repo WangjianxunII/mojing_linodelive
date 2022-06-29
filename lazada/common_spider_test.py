@@ -2,11 +2,13 @@
 import json
 import random
 import re
+import time
 import urllib
 import pymongo
 
 from moojing.spiderman.lazadasign import get_data_and_header
 from moojing.spiderman.tbnewee import get_new_ee
+s_time = time.time()
 DOMAIN = {'my': 'lazada.com.my',  # 马来西亚
           'id': 'lazada.co.id',  # 印度尼西亚
           'vn': 'lazada.vn',  # 越南
@@ -88,3 +90,5 @@ print params
 
 url = "https://acs-m.%s/gw/%s/%s/" % (DOMAIN[plat], api, v)
 print 'url:', url
+e_time = time.time()
+print 'cost:',e_time-s_time
