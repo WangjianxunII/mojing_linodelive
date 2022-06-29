@@ -11,6 +11,7 @@ from moojing import INFO, ERR
 from moojing.spiderman.lazadasign import get_data_and_header
 from moojing.spiderman.tbnewee import get_new_ee
 from moojing.spiderman import jobqueue
+from moojing.spiderman import BasicWorker
 red = jobqueue.red
 # red = redis.Redis(host='192.168.193.8', password='redixxxx', port=6380, db=10)
 
@@ -354,7 +355,8 @@ def get_item_list(ps, seed, app):
         item['plat'] = plat
     return items
 
-def common_run(jq, plat):
+def common_run(jq):
+    plat = 'sg'
     detail_project = 'lazada_detail_%s_'%plat
     detail_jq = jobqueue.Queue('{0}'.format(detail_project))
     global detail_jq
@@ -384,7 +386,7 @@ def common_run(jq, plat):
                 continue
             if cat.get('depth') == 2 and cat.get('child_count') != 0:
                 continue
-            jq.enqueue({'type': 'get_list',
+            jq.enqueue({'type': 'get_item_list',
                         'scm': cat.get("scm", ''),
                         'acm': cat.get("acm", ''),
                         'category_id': cat.get('id'),
@@ -394,3 +396,7 @@ def common_run(jq, plat):
                         # 'utd_id': generate_utd_id(),
                         'category_url': cat.get("category_url")
                         })
+
+if __name__ == '__main__':
+    worker = BasicWorker(project='common_run', proxy_type='rproxy', user_agent_type='mobile', sleep_time=5, worker_retry=50)
+    worker.run()
