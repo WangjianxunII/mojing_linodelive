@@ -9,8 +9,8 @@ from moojing.spiderman.tbnewee import get_new_ee
 
 seed = {"name" : "Men's Care", "plat" : "sg", "depth" : 2, "child_count" : 5, "category_url" : "//www.lazada.sg/shop-mens-care/", "path" : [ "965437", "1646" ], "id" : "1646" }
 # 获取类目下商品列表
-acm = seed['acm']
-scm = seed['scm']
+acm = ''
+scm = ''
 api = "mtop.lazada.gsearch.appsearch"
 v = '1.0'
 device_id = seed.get('device_id')
